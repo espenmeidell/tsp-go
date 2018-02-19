@@ -1,8 +1,6 @@
 package main
 
 import (
-	//"sort"
-	//"fmt"
 	"time"
 	"math/rand"
 	"fmt"
@@ -17,12 +15,19 @@ func main() {
 		population[i] = createRandomSolution(cities)
 	}
 
-	fmt.Println(averageDist(population))
-	for i, _ := range population {
-		population[i].mutate()
-	}
-	fmt.Println(averageDist(population))
 
+	//for i := range population {
+	//	population[i].mutate()
+	//}
+	//sort.Sort(ByDistance(population))
+
+	s1 := createRandomSolution(cities)
+	s2 := createRandomSolution(cities)
+
+	fmt.Println("S1", s1)
+	fmt.Println("S2", s2)
+
+	crossover(&s1, &s2)
 
 
 }

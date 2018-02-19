@@ -3,6 +3,7 @@ package main
 import (
 	"math/rand"
 	"sort"
+	"fmt"
 )
 
 // Mutate a solution
@@ -20,4 +21,12 @@ func (solution *Solution) mutate() {
 		}
 	}
 	solution.Distance = calculateDistance(solution.cities)
+}
+
+func crossover(mama, papa *Solution)  {
+	cities1 := make([]City, len(mama.cities))
+	cities2 := make([]City, len(papa.cities))
+	copy(cities1, mama.cities)
+	copy(cities2, papa.cities)
+
 }
