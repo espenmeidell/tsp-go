@@ -1,12 +1,28 @@
 package main
 
-import "fmt"
+import (
+	//"sort"
+	//"fmt"
+	"time"
+	"math/rand"
+	"fmt"
+)
+
 
 func main() {
-	cities := readProblemFile("data/1.txt")
-	s1 := createRandomSolution(cities)
-	s2 := createRandomSolution(cities)
+	rand.Seed(time.Now().UTC().UnixNano())
+	cities := readProblemFile("data/6.txt")
+	population := make([]Solution, 5)
+	for i := 0; i < len(population); i++ {
+		population[i] = createRandomSolution(cities)
+	}
+	
+	fmt.Println(averageDist(population))
+	for i, _ := range population {
+		population[i].mutate()
+	}
+	fmt.Println(averageDist(population))
 
-	fmt.Println(calculateDistance(&s1))
-	fmt.Println(calculateDistance(&s2))
+
+
 }
