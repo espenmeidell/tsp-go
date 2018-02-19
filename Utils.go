@@ -2,6 +2,7 @@ package main
 
 import (
 	"math"
+	"math/rand"
 )
 
 func distanceBetweenPoints(p1, p2 *City) float64 {
@@ -16,4 +17,13 @@ func calculateDistance(solution *Solution) float64 {
 	}
 	total += distanceBetweenPoints(&solution.cities[len(solution.cities)-1], &solution.cities[0])
 	return total
+}
+
+
+func createRandomSolution(cities []City) Solution {
+	order := make([]City, len(cities))
+	for i, j := range rand.Perm(len(cities)){
+		order[i] = cities[j]
+	}
+	return Solution{order}
 }
