@@ -1,8 +1,9 @@
 package main
 
-import ("fmt")
+import "fmt"
 
 func main() {
-	fmt.Println("Starting")
-	readProblemFile("data/1.txt")
+	cities := readProblemFile("data/1.txt")
+	test := Solution{cities}
+	fmt.Println(calculateDistance(&test))
 }

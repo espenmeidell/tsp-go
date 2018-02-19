@@ -1,9 +1,10 @@
 package main
 
-type Point struct {
+type City struct {
+	id int
 	x, y float64
 }
 
 type Solution struct {
-	cities [] Point
+	cities [] City
 }
