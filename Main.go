@@ -16,7 +16,7 @@ func main() {
 	for i := 0; i < len(population); i++ {
 		population[i] = createRandomSolution(cities)
 	}
-	
+
 	fmt.Println(averageDist(population))
 	for i, _ := range population {
 		population[i].mutate()
